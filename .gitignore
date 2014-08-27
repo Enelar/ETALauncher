@@ -59,3 +59,9 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
+ETALauncher/ETALauncher/Debug/*
+ETALauncher/ETALauncher/Release/*
+ETALauncher/Release/*
+ETALauncher/Debug/*
+*.suo
+*.sdf
