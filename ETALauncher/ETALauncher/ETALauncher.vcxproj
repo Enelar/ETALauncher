@@ -86,10 +86,13 @@
   <ItemGroup>
     <ClCompile Include="browser.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="updater.cpp" />
     <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="browser.h" />
+    <ClInclude Include="headerless.h" />
+    <ClInclude Include="updater.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -24,9 +24,18 @@
     <ClCompile Include="browser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="updater.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="browser.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="updater.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headerless.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

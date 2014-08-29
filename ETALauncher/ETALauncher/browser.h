@@ -5,10 +5,7 @@
 
 using namespace std;
 
-namespace Awesomium
-{
-  class WebCore;
-}
+#include "headerless.h"
 
 struct browser
 {
@@ -25,5 +22,7 @@ private:
   bool RegisterClass(string name, WNDPROC proc);
   HWND hwnd;
   HINSTANCE instance;
+public:
   Awesomium::WebCore *core;
+  Awesomium::WebView *view;
 };

@@ -7,7 +7,10 @@
 
 using namespace Awesomium;
 
-WebView* view = nullptr;
+namespace
+{
+  static browser *active = nullptr;
+}
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -20,6 +23,7 @@ void browser::Open(string url)
   if (!RegisterClass(szWindowClass, WndProc))
     exit(-1);
   hwnd = OpenWindow(szWindowClass, szTitle);
+  active = this;
   if (!hwnd)
     exit(-1);
   view->set_parent_window(hwnd);
@@ -41,8 +45,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
   case WM_TIMER:
     break;
   case WM_SIZE:
-    if (view)
-      view->Resize(LOWORD(lParam), HIWORD(lParam));
+    if (active && active->view)
+      active->view->Resize(LOWORD(lParam), HIWORD(lParam));
     break;
   case WM_DESTROY:
     PostQuitMessage(0);
