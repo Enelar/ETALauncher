@@ -35,6 +35,7 @@ struct downloader : WebViewListener::Download
     const Awesomium::WebURL& url,
     const Awesomium::WebString& saved_path)
   {
+    caller->ExecuteJavascript(WSLit("$('#progress').html('OK')"), WSLit(""));
   }
 };
 
