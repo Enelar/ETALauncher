@@ -65,3 +65,4 @@ ETALauncher/Release/*
 ETALauncher/Debug/*
 *.suo
 *.sdf
+*.opensdf

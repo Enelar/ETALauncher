@@ -9,8 +9,8 @@ using namespace std;
 
 #pragma comment(lib, "awesomium.lib")
 
-const wchar_t szWindowClass[] = L"ViewWinClass";
-const wchar_t szTitle[] = L"щрю кюсмвеп";
+const char szWindowClass[] = "ViewWinClass";
+const char szTitle[] = "щрю кюсмвеп";
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
