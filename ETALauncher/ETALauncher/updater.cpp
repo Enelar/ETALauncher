@@ -9,6 +9,8 @@ using namespace Awesomium;
 #include <string>
 #include <chrono>
 
+std::string GetPWD();
+
 struct loader : WebViewListener::Load
 {
   updater &u;
@@ -67,12 +69,13 @@ struct loader : WebViewListener::Load
     char *roaming = getenv("APPDATA");
 
     auto start = std::chrono::system_clock::now();
+    std::string t = GetPWD() + "wget.exe";
     SHELLEXECUTEINFO ShExecInfo = { 0 };
     ShExecInfo.cbSize = sizeof(SHELLEXECUTEINFO);
     ShExecInfo.fMask = SEE_MASK_NOCLOSEPROCESS;
     ShExecInfo.hwnd = NULL;
     ShExecInfo.lpVerb = NULL;
-    ShExecInfo.lpFile = "C:/documents/com/etamc/wget.exe";
+    ShExecInfo.lpFile = t.c_str();
     ShExecInfo.lpParameters = "-c http://eta-mc.ru/minecraft.7z";
     ShExecInfo.lpDirectory = roaming;
     ShExecInfo.nShow = SW_SHOW;
@@ -84,14 +87,15 @@ struct loader : WebViewListener::Load
     if (end - start < std::chrono::seconds(10))
       return;
 
+    t = (GetPWD() + "7zr.exe");
     ShExecInfo.cbSize = sizeof(SHELLEXECUTEINFO);
     ShExecInfo.fMask = SEE_MASK_NOCLOSEPROCESS;
     ShExecInfo.hwnd = NULL;
     ShExecInfo.lpVerb = NULL;
-    ShExecInfo.lpFile = "C:/documents/com/etamc/7zr.exe";
+    ShExecInfo.lpFile = t.c_str();
     ShExecInfo.lpParameters = "x -y minecraft.7z";
     ShExecInfo.lpDirectory = roaming;
-    ShExecInfo.nShow = SW_HIDE;
+    ShExecInfo.nShow = SW_SHOW;
     ShExecInfo.hInstApp = NULL;
     ShellExecuteEx(&ShExecInfo);
     WaitForSingleObject(ShExecInfo.hProcess, INFINITE);

@@ -5,8 +5,23 @@
 
 #include "updater.h"
 
+string GetPWD()
+{
+  static string str = []() -> string
+  {
+    const int size = 1000;
+    char str[size];
+    GetCurrentDirectory(size, str);
+    return{ str };
+  }() + "/";
+  return str;
+}
+
+
 int __stdcall WinMain(HINSTANCE i, HINSTANCE, char *, int)
 {
+  GetPWD();
+
   using namespace Awesomium;
   WebCore* core = WebCore::Initialize(WebConfig());
   browser b(core, i);
